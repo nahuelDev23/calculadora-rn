@@ -5,8 +5,19 @@ import {CalulatorBtn} from '../components';
 import {useCalculator} from '../hooks';
 
 export const CalculatorScreen = () => {
-  const {number, buildNumber, toggleSign, deleteOperation, clean, prevNumber} =
-    useCalculator();
+  const {
+    number,
+    buildNumber,
+    toggleSign,
+    deleteOperation,
+    clean,
+    dividerOperation,
+    addOperation,
+    substractOperation,
+    multiplyOperation,
+    calculateResult,
+    prevNumber,
+  } = useCalculator();
   return (
     <View style={globalStyles.calculatorContainer}>
       <View style={{paddingHorizontal: 30, paddingBottom: 20}}>
@@ -38,7 +49,7 @@ export const CalculatorScreen = () => {
           color={colors.lightGray}
         />
         <CalulatorBtn
-          onPress={() => console.log()}
+          onPress={dividerOperation}
           label="/"
           color={colors.orange}
         />
@@ -60,7 +71,7 @@ export const CalculatorScreen = () => {
           color={colors.darkGray}
         />
         <CalulatorBtn
-          onPress={() => buildNumber('x')}
+          onPress={multiplyOperation}
           label="X"
           color={colors.orange}
         />
@@ -82,7 +93,7 @@ export const CalculatorScreen = () => {
           color={colors.darkGray}
         />
         <CalulatorBtn
-          onPress={() => console.log()}
+          onPress={substractOperation}
           label="-"
           color={colors.orange}
         />
@@ -103,16 +114,12 @@ export const CalculatorScreen = () => {
           label="3"
           color={colors.darkGray}
         />
-        <CalulatorBtn
-          onPress={() => console.log()}
-          label="+"
-          color={colors.orange}
-        />
+        <CalulatorBtn onPress={addOperation} label="+" color={colors.orange} />
       </View>
 
       <View style={globalStyles.row}>
         <CalulatorBtn
-          onPress={() => console.log()}
+          onPress={() => buildNumber('0')}
           label="0"
           color={colors.darkGray}
           DoubleCol
@@ -123,7 +130,7 @@ export const CalculatorScreen = () => {
           color={colors.darkGray}
         />
         <CalulatorBtn
-          onPress={() => console.log()}
+          onPress={calculateResult}
           label="="
           color={colors.darkGray}
         />
